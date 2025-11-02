@@ -1,0 +1,24 @@
+{
+  "name": "blog_application",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "s": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/souvik283/Blog_application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/souvik283/Blog_application/issues"
+  },
+  "homepage": "https://github.com/souvik283/Blog_application#readme",
+  "description": "",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "nodemon": "^3.1.10"
+  }
+}
