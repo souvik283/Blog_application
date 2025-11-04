@@ -9,13 +9,7 @@
 <body>
     <%- include("./partials/nav") %>
 
-    <form action="/user/signup" method="post">
-    <div class="mb-3">
-    <label  class="form-label">First Name</label>
-    <input type="text" name="firstname" class="form-control" required>
-    <label  class="form-label">Last Name</label>
-    <input type="text" name="lastname" class="form-control" >
-  </div>
+    <form action="/user/signin" method="post">
   <div class="mb-3">
     <label class="form-label">Email address</label>
     <input type="email" class="form-control" name="email" required aria-describedby="emailHelp">
@@ -24,14 +18,6 @@
   <div class="mb-3">
     <label class="form-label">Password</label>
     <input type="password" class="form-control" required name="password">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="mb-3">
-    <label class="form-label">Upload Profile Image</label>
-    <input type="file" name="profileImg" class="form-control">
   </div>
   
   <button type="submit" class="btn btn-primary">Submit</button>
