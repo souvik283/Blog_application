@@ -29,3 +29,10 @@
     </div>
   </div>
 </nav>
+
+<% if (locals.error) { %>
+  <div class="container mb-4">
+ <div class="alert alert-danger" role="alert">
+  <%= error %>
+</div>
+<% } %>
