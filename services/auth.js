@@ -8,6 +8,7 @@ function createTokenForUser(user) {
         _id : user._id,
         email: user.email,
         role: user.role,
+        fullName: `${user.firstName} ${user.lastName}`,
         profileImgUrl: user.profileImgUrl
     }
     const token = jwt.sign(playlod, secret)
@@ -16,7 +17,7 @@ function createTokenForUser(user) {
 }
 
 function verifyUser (token) {
-    jwt.verify(token, secret)
+    const playlod = jwt.verify(token, secret)
     return playlod
     
 }

@@ -1,31 +1,19 @@
 const mongoose = require("mongoose")
-const multer = require("multer")
 
 const User = require("../models/user")
 const express = require("express")
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb)=>{
-        cb(null, "./images")
-    },
-    filename: (req, file, cb)=>{
-        cb(null, file.originalname)
-    }
-})
 
-const upload = multer({storage})
 
 async function handleUserSignup(req, res) {
-    // if(req.body.profileImg){
-    // const a = await upload.single({})
-    //     console.log(a)
-    // }
+    const profileImgUrl = req.file ? `/images/${req.file.filename}` : "/images/default_img.jpg"
     const {firstname, lastname, email, password} = req.body
     await User.create({
         firstName: firstname,
         lastName: lastname,
         email: email,
-        password: password
+        password: password,
+        profileImgUrl: profileImgUrl
     })
 
     return res.redirect("/")
@@ -45,7 +33,12 @@ async function handleUserSignin(req, res) {
     
 }
 
+async function handleUserLogout(req, res) {
+    res.clearCookie("token").redirect("/")
+}
+
 module.exports = {
     handleUserSignup,
-    handleUserSignin
+    handleUserSignin,
+    handleUserLogout
 }
