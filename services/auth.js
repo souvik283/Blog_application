@@ -5,7 +5,7 @@ const secret = "souvik41205"
  
 function createTokenForUser(user) {
     const playlod = {
-        _id : user._id,
+        _id: user._id,
         email: user.email,
         role: user.role,
         fullName: `${user.firstName} ${user.lastName}`,
@@ -18,7 +18,7 @@ function createTokenForUser(user) {
 
 function verifyUser (token) {
     const playlod = jwt.verify(token, secret)
-    return playlod
+    return playlod;
     
 }
 

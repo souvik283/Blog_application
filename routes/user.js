@@ -19,8 +19,8 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage})
 
-router.get("/signup", (req, res)=>{
-    res.render("signup", {
+router.get("/login", (req, res)=>{
+    res.render("login", {
         user: req.user
     })
 })
@@ -34,6 +34,8 @@ router.get("/profile", (req, res)=>{
         user: req.user
     })
 })
+
+
 router.get("/logout", handleUserLogout)
 
 

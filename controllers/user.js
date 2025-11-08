@@ -16,7 +16,7 @@ async function handleUserSignup(req, res) {
         profileImgUrl: profileImgUrl
     })
 
-    return res.redirect("/")
+    return res.redirect("/user/login")
 }
 
 async function handleUserSignin(req, res) {
@@ -26,7 +26,7 @@ async function handleUserSignin(req, res) {
     const token = await User.userMatched(email, password)
     res.cookie("token", token).redirect("/")
     } catch (error) {
-        res.render("signin", {
+        res.render("login", {
             error: "Incrroct Username & Password."
         })
     } 
