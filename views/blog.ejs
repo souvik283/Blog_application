@@ -27,10 +27,39 @@
     <img src="<%= blog.createdBy.profileImgUrl %>" alt="" style="height: 60px; border-radius: 50px;margin-right: 10px;">
    ~ <%= blog.createdBy.firstName %> <%= blog.createdBy.lastName %> 
 </p>
-
     </div>
+<% if (locals.user) { %>
+ 
+    <div class="container mt-3">
+            <h3>Comment Here</h3>
+            <form action="/blog/comment/<%= blog._id %>" method="post">
+  <div class="mb-3">
+    <input type="text" name="comment" placeholder="Enter your comment" required style="width: 55vw;" class="form-control">
+  </div>
+   
+  <button type="submit" class="btn btn-primary">Add</button>
+</form>  
+    </div>
+    
+<% } %>
 
-
+<% if (locals.comments) { %>
+    <div class="container mt-3">
+        <h3 style="color: rgb(53, 230, 171);margin-bottom: 10px;">Comments (<%= comments.length %>)</h3>
+    
+     <% comments.forEach(comment => { %>
+        
+     <div style="box-shadow: 1px 2px 12px rgb(100, 100, 100); margin-bottom: 9px;padding: 5px 20px;border-radius: 6px;border: none;">
+     <p style="color: aliceblue;">
+    <h5 style="color: rgb(194, 37, 34);">Comment By:</h5>
+    <img src="<%= comment.createdBy.profileImgUrl %>" alt="" style="height: 60px; border-radius: 50px;margin-right: 10px;">
+   ~ <%= comment.createdBy.firstName %> <%= comment.createdBy.lastName %> 
+</p>
+<h6><%= comment.content %></h6>
+     </div>
+     <% }) %>
+    </div>
+        <% } %>
     <%- include("./partials/script") %>
 </body>
 </html>
