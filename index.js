@@ -32,8 +32,8 @@ app.set("views", path.resolve("./views"))
 app.use(checkForAuthanticationToken("token"))
 
 app.get("/", async(req, res) => {
-    let allBlogs =   await Blog.find({})
-    
+    let allBlogs =   await Blog.find({}).populate("createdBy")
+    // console.log(allBlogs)
     res.render("home", {
         user: req.user,
         blogs: allBlogs

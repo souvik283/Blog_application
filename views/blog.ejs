@@ -5,14 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
         <%- include("./partials/style") %>
+        <style>
+            body{
+                background-color: rgb(52, 52, 52);
+                color: rgb(212, 212, 212);
+                font-size: 20px;
+            }
+        </style>
 </head>
 <body>
     <%- include("./partials/nav") %>
-   <h3> <%= blog.title %></h3>
-    <img src="<%= blog.coverImageUrl %>" alt="">
-    <pre>
-        <%= blog.description %>
-    </pre>
+    <div class="container mt-3">
+   <h3 style="color: aqua; display: flex;justify-self: center;margin-bottom: 20px;">Title: <%= blog.title %></h3>
+
+    <img src="<%= blog.coverImageUrl %>" alt="" style="height: 400px; display: flex;justify-self: center;margin-bottom: 20px;">
+    <p style="color: rgb(184, 12, 223); font-size: 21px; display: flex;margin-bottom: 20px;">
+        About Blog: <%= blog.description %>
+    </p>
+    <p style="color: aliceblue;">
+    <h5 style="color: rgb(10, 230, 61);">Created By:</h5>
+    <img src="<%= blog.createdBy.profileImgUrl %>" alt="" style="height: 60px; border-radius: 50px;margin-right: 10px;">
+   ~ <%= blog.createdBy.firstName %> <%= blog.createdBy.lastName %> 
+</p>
+
+    </div>
 
 
     <%- include("./partials/script") %>

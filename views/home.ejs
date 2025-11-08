@@ -62,6 +62,7 @@ background: var(--gradient) !important;
                     <img src="<%= blog.coverImageUrl %>" style="height: 250px;" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><%= blog.title %></h5>
+                        <h6 class="card-title">Created By ~ <%= blog.createdBy.firstName %> <%= blog.createdBy.lastName %> </h6>
                         <a href="/blog/<%= blog._id %>" class="btn mr-2"><i class="fas fa-link"></i> View Blog</a>
                         
                     </div>

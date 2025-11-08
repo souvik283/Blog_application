@@ -45,7 +45,7 @@ router.post("/add-blog", upload.single("coverImg"), async(req, res)=>{
 
 router.get("/:id", async(req, res)=>{
     const blog_id = req.params.id;
-    const blog = await Blog.findOne({_id: blog_id})
+    const blog = await Blog.findOne({_id: blog_id}).populate("createdBy")
 // console.log(blog)
     res.render("blog", {
         user: req.user,
