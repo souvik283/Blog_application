@@ -1,3 +1,4 @@
+require("dotenv").config()
 const express = require("express")
 const path = require("path")
 const cookies = require("cookie-parser")
@@ -9,10 +10,10 @@ const Blog = require("./models/blog")
 
 
 const app = express()
-const port = 4002;
+const port = process.env.PORT;
 
 mongoose
-    .connect("mongodb://127.0.0.1:27017/Blogyfy")
+    .connect(process.env.mongoUrl)
     .then(() => {
         console.log("MongoDB Connected")
     })
